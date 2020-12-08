@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+    <label for="orderId">Order ID:</label>
+    <input type="text" name="orderId" id="orderId" formControlName="orderId" class="m-2">
+    <button type="button" class="btn btn-primary" (click)="onClickLookUp()">Look up</button>
+</form>
+<hr>
+<div class="row">
+    <div class="col" [hidden]="!isClicked">
+        The order details retrieved are:<br>
+        Order ID - {{orderDetails.id}}<br>
+        Order Date - {{orderDetails.order_date}}<br>
+        Customer ID - {{orderDetails.customer_id}}<br>
+        Total Quantity - {{orderDetails.total_quantity}}<br>
+        Total Unit Price - {{orderDetails.total_unit_price}}<br>
+        Total Discount - {{orderDetails.total_discount}}<br>
+        Cost Price - {{orderDetails.cost_price}}
+    </div>
+</div>
