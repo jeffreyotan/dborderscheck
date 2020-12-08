@@ -9,13 +9,14 @@ export class WebServices {
 
     constructor(private http: HttpClient) {}
 
-    async getFormDetails(orderId) {
+    async getFormDetails(orderId): Promise<OrderDetails> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
         };
-        return await this.http.get<OrderDetails>(`${this.svrUrl}/${orderId}`, httpOptions).toPromise();
+        const results = await this.http.get(`${this.svrUrl}/${orderId}`, httpOptions).toPromise();
+        return results[0];
     }
 
 }
